@@ -14,3 +14,17 @@ function generatePin() {
 	const displayPin = document.getElementById('display-pin');
 	displayPin.value = getPin();
 }
+document.getElementById('key-pad').addEventListener('click', function (event) {
+	const number = event.target.innerText;
+	// console.log(number);
+	const calcInput = document.getElementById('typed-numbers');
+	if (isNaN(number)) {
+		if (number == 'C') {
+			calcInput.value = '';
+		}
+	} else {
+		const previousNumber = calcInput.value;
+		const newNumber = previousNumber + number;
+		calcInput.value = newNumber;
+	}
+});
